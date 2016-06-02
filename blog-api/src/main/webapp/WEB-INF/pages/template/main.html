@@ -1,0 +1,171 @@
+<div id="mainbody">
+  <div class="info">
+    <figure><img src="images/art1.jpg" alt="Panama Hat">
+      <figcaption><strong>让未来的你，感谢今天的你所付出的努力。</strong>
+        在这里，与各位再共同勉励一次，我们要做聪明的人，做有智慧的人有慈爱又肯诚实对人对己的勇者。就算天大的事情来了，也不逃避它，心平气和地为自己争取最合理的解决之道，不可以做一个弱者，凡是不顺心便跌倒的人是要被社会淘汰的，做一个有弹性的人，当是我们一生追求的目标。
+      </figcaption>
+    </figure>
+    <div class="card" ng-controller="UserController">
+      <h1>我的名片</h1>
+      <p>网名：<label ng-bind="user.nickname"></label></p>
+      <p>姓名：<label ng-bind="user.name"></label></p>
+      <p>电话：<label ng-bind="user.mobile"></label></p>
+      <p>Email：<label ng-bind="user.email"></label></p>
+      <ul class="linkmore">
+        <li><a href="/" class="talk" title="给我留言"></a></li>
+        <li><a href="/" class="address" title="联系地址"></a></li>
+        <li><a href="/" class="email" title="写信给我"></a></li>
+        <li><a href="/" class="photos" title="生活照片"></a></li>
+        <li><a href="/" class="heart" title="关注我"></a></li>
+      </ul>
+    </div>
+  </div>
+  <!--info end-->
+  <div class="blank"></div>
+  <div class="blogs" ng-controller="ArticleController">
+    <ul class="bloglist">
+      <li ng-repeat="item in items">
+        <div class="arrow_box">
+          <div class="ti"></div>
+          <!--三角形-->
+          <div class="ci"></div>
+          <!--圆形-->
+          <h2 class="title"><a href="/" target="_blank" ng-bind="item.title"></a></h2>
+          <ul class="textinfo">
+            <a href="/"><img ng-src="{{item.images}}"></a>
+            <p ng-bind="item.content"></p>
+          </ul>
+          <ul class="details">
+            <li class="likes"><a href="#">102</a></li>
+            <li class="comments"><a href="#">58</a></li>
+            <li class="icon-time"><a href="#" ng-bind="item.createTime | date:'yyyy'"></a></li>
+          </ul>
+        </div>
+        <!--arrow_box end-->
+      </li>
+    </ul>
+    <!--bloglist end-->
+    <aside>
+      <div class="tuijian">
+        <h2>推荐文章</h2>
+        <ol>
+          <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
+          <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
+          <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀</a></li>
+          <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天</a></li>
+          <li><span><strong>5</strong></span><a href="/">我希望我的爱情是这样的</a></li>
+          <li><span><strong>6</strong></span><a href="/">谁更心软，谁就先长大</a></li>
+          <li><span><strong>7</strong></span><a href="/">Nothing is as sweet as you</a></li>
+          <li><span><strong>8</strong></span><a href="/">谁更心软，谁就先长大</a></li>
+          <li><span><strong>9</strong></span><a href="/">趁我们都还年轻</a></li>
+        </ol>
+      </div>
+      <div class="toppic">
+        <h2>图文并茂</h2>
+        <ul>
+          <li><a href="/"><img src="images/k01.jpg">腐女不可怕，就怕腐女会画画！
+            <p>伤不起</p>
+          </a></li>
+          <li><a href="/"><img src="images/k02.jpg">问前任，你还爱我吗？无限戳中泪点~
+            <p>感兴趣</p>
+          </a></li>
+          <li><a href="/"><img src="images/k03.jpg">世上所谓幸福，就是一个笨蛋遇到一个傻瓜。
+            <p>喜欢</p>
+          </a></li>
+        </ul>
+      </div>
+      <div class="clicks">
+        <h2>热门点击</h2>
+        <ol>
+          <li><span><a href="/">慢生活</a></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
+          <li><span><a href="/">爱情美文</a></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
+          <li><span><a href="/">慢生活</a></span><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></li>
+          <li><span><a href="/">博客模板</a></span><a href="/">Green绿色小清新的夏天</a></li>
+          <li><span><a href="/">主题日</a></span><a href="/">女生清新</a></li>
+          <li><span><a href="/">Wedding</a></span><a href="/">Wedding-婚礼</a></li>
+          <li><span><a href="/">单身俱乐部</a></span><a href="/">C、今夜我最大</a></li>
+          <li><span><a href="/">古典风格</a></span><a href="/">时间煮雨</a></li>
+          <li><span><a href="/">花香依旧</a></span><a href="/">花气袭人是酒香</a></li>
+        </ol>
+      </div>
+      <div class="search">
+        <form class="searchform" method="get" action="#">
+          <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+        </form>
+      </div>
+      <div class="viny">
+        <dl>
+          <dt class="art"><img src="images/artwork.png" alt="专辑"></dt>
+          <dd class="icon-song"><span></span>智齿</dd>
+          <dd class="icon-artist"><span></span>歌手：IU</dd>
+          <dd class="icon-album"><span></span>所属专辑：《Last Fantasy》</dd>
+          <dd class="icon-like"><span></span><a href="/">喜欢</a></dd>
+          <dd class="music">
+            <audio src="music/zhichi.mp3" controls></audio>
+          </dd>
+          <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
+        </dl>
+      </div>
+    </aside>
+  </div>
+  <!--blogs end-->
+</div>
+<!--mainbody end-->
+<footer>
+  <div class="footer-mid">
+    <div class="links">
+      <h2>友情链接</h2>
+      <ul>
+        <li><a href="http://blog.wangwenyu.com/" target="_blank">老王的闺房</a></li>
+      </ul>
+    </div>
+    <div class="visitors">
+      <h2>最新评论</h2>
+      <dl>
+        <dt><img src="images/s8.jpg">
+        <dt>
+        <dd>天秤座
+          <time>49分钟前</time>
+        </dd>
+        <dd>在 <a href="http://www.yangqq.com/jstt/bj/2014-04-28/530.html"
+                 class="title">如果要学习web前端开发，需要学习什么？ </a>中评论：
+        </dd>
+        <dd>文章非常详细，我很喜欢.前端的工程师很少，我记得几年前yahoo花高薪招聘前端也招不到</dd>
+      </dl>
+      <dl>
+        <dt><img src="images/s7.jpg">
+        <dt>
+        <dd>乌龟
+          <time>2小时前</time>
+        </dd>
+        <dd>在 <a href="http://www.yangqq.com/news/s/2014-04-31/533.html" class="title">芭蕾女孩的心事儿</a>中评论：</dd>
+        <dd>博主好厉害！！！好羡慕！我何时才能这样子？？</dd>
+      </dl>
+      <dl>
+        <dt><img src="images/s6.jpg">
+        <dt>
+        <dd>色彩人生
+          <time>8月7日</time>
+        </dd>
+        <dd>在 <a href="http://www.yangqq.com/jstt/bj/2014-04-18/285.html"
+                 class="title">如果个人博客网站再没有价值，你还会坚持吗？ </a>中评论：
+        </dd>
+        <dd>博客色彩丰富，很是好看</dd>
+      </dl>
+    </div>
+    <section class="flickr">
+      <h2>摄影作品</h2>
+      <ul>
+        <li><a href="/"><img src="images/01.jpg"></a></li>
+        <li><a href="/"><img src="images/02.jpg"></a></li>
+        <li><a href="/"><img src="images/03.jpg"></a></li>
+        <li><a href="/"><img src="images/04.jpg"></a></li>
+        <li><a href="/"><img src="images/05.jpg"></a></li>
+        <li><a href="/"><img src="images/06.jpg"></a></li>
+        <li><a href="/"><img src="images/07.jpg"></a></li>
+        <li><a href="/"><img src="images/08.jpg"></a></li>
+        <li><a href="/"><img src="images/09.jpg"></a></li>
+      </ul>
+    </section>
+  </div>
+</footer>
