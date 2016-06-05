@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<link href="css/personalblog.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
 <link href="css/animation.css" rel="stylesheet">
 
 <!-- 返回顶部调用 begin -->
@@ -27,6 +27,13 @@
     <title>Ag丶七梦安生个人博客</title>
     <meta name="keywords" content="博客,单其贝,shanqibei,vic"/>
     <meta name="description" content="单其贝的个人博客"/>
+    <%--QQ--%>
+    <meta property="qc:admins" content="35402540316112516375" />
+    <%--百度--%>
+    <meta name="baidu-site-verification" content="4GIrk08MDQ" />
+
+    <link rel="shortcut icon" href="images/icon/favicon.ico"/>
+    <link rel="bookmark" href="images/icon/favicon.ico"/>
 </head>
 <body>
 <jsp:include page="commons/header.jsp"/>

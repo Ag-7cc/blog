@@ -1,0 +1,50 @@
+.hr{
+    height: 2px;
+    width: 100%;
+    margin: 10px auto;
+}
+.mainBody{
+    border: 0px red solid;
+    border-radius: 8px 8px 0px 0px;
+    height: 900px;
+    width: 1000px;
+    margin: 30px auto;
+    background-color:  #222;
+}
+.mainBody .mod-tab{
+    width: 950px;
+    height: 52px;
+    border: 0px blue solid;
+    margin: 0 auto;
+}
+.mod-tab .mod-tab-list{
+    height: 50px;
+}
+.mod-tab-list ul{
+    float: left;
+    height: 50px;
+    position: relative;
+}
+.mod-tab-list ul li{
+    float: left;
+    outline: none;
+    width: 96px;
+    height: 52px;
+}
+.mod-tab-list ul li a{
+    float: left;
+    font-size: 14px;
+    margin: 0px 10px;
+    position: relative;
+    vertical-align: middle;
+}
+.mod-tab-list .item-wrap{
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 10px 0px;
+    font-weight: bold;
+}
+.mod-tab .hr{
+    background: #FFF;
+}

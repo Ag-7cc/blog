@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header-taglib.jsp" %>
 
-<link rel="shortcut icon" href="images/icon/favicon.ico"/>
-<link rel="bookmark" href="images/icon/favicon.ico"/>
-
 <link href="css/main.css" rel="stylesheet">
 <link href="css/animation.css" rel="stylesheet">
 
@@ -24,6 +21,13 @@
 </header>
 <script>
     $(function(){
+        $('#nav a').each(function(){
+            var curHref = window.location.href;
+            if(curHref.indexOf($(this).attr('href')) >= 0){
+                $('#nav a.nav_current').removeClass('nav_current');
+                $(this).addClass('nav_current');
+            }
+        });
         $('#nav a').click(function(){
             $('#nav a.nav_current').removeClass('nav_current');
             $(this).addClass('nav_current');

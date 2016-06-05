@@ -8,7 +8,7 @@ h1 { font: 24px "微软雅黑", "Microsoft YaHei", Arial, Helvetica, sans-serif 
 p { word-wrap: break-word }
 ul, ol { list-style: none; }
 a { color: #a6a6a6; text-decoration: none; transition: All 1s ease; -webkit-transition: All 1s ease; -moz-transition: All 1s ease; -ms-transition: All 1s ease; -o-transition: All 1s ease; }
-a:hover { color: #fff; }
+a:hover { color: #fff; cursor: pointer;}
 .blank { height: 5px; overflow: hidden; width: 100%; margin: auto; clear: both }
 /*------------------------- 导航动画-------------------------------------*/
 @keyframes heartbeat{from {border-radius: 6px}to {border-radius: 15px} }
