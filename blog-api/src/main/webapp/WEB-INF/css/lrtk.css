@@ -3,7 +3,7 @@
     background-attachment: fixed;
 }
 
-/*½â¾öIE6ÏÂ¹ö¶¯¶¶¶¯µÄÎÊÌâ*/
+/*è§£å†³IE6ä¸‹æ»šåŠ¨æŠ–åŠ¨çš„é—®é¢˜*/
 #tbox {
     width: 54px;
     float: right;
@@ -16,7 +16,7 @@
     _margin-bottom: 15px;
 }
 
-/*½â¾öIE6ÏÂ²»¼æÈİ position:fixed µÄÎÊÌâ*/
+/*è§£å†³IE6ä¸‹ä¸å…¼å®¹ position:fixed çš„é—®é¢˜*/
 #togbook, #gotop {
     width: 54px;
     height: 56px;
