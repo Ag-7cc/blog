@@ -3,6 +3,7 @@
 
 <link href="css/main.css" rel="stylesheet">
 <link href="css/animation.css" rel="stylesheet">
+<link href="css/article.css" rel="stylesheet">
 
 <header>
     <nav id="nav">

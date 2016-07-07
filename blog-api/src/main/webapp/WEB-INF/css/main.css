@@ -76,7 +76,9 @@ aside div { box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba
 .tuijian li span { margin-right: 10px; font-size: 14px; font-family: "微软雅黑"; }
 .tuijian li:nth-child(-n+3) span { width: 39px; color: #999 } /* 选择从第3个开始倒数也就是第三个前面的 */
 .tuijian li:nth-child(-n+3) strong { font-size: 24px; font-weight: normal; }
-.tuijian li:first-child span { color: #f8490b; } /* 选择第一个 */
+.tuijian li:nth-child(1) span { color: #f8490b; } /* 选择第一个 */
+.tuijian li:nth-child(2) span { color: #B5783E; } /* 选择第二个 */
+.tuijian li:nth-child(3) span { color: #006666; } /* 选择第三个 */
 .tuijian li:nth-child(n+3) { line-height: 24px } /* 选择从第3个开始往后数 */
 .tuijian li:nth-child(4) { margin: 5px 0 0 0 } /* 选择第四个 */
 /* 图文并茂 */
