@@ -10,7 +10,7 @@
         <ul>
             <li><a href="#/" class="nav_current">网站首页</a></li>
             <li><a href="#/article" target="_self" title="我的博文">我的博文</a></li>
-            <li><a href="#1" target="_self" title="相册">相册</a></li>
+            <li><a href="#/album" target="_self" title="相册">相册</a></li>
             <li><a href="#2" target="_self" title="留言板">留言板</a></li>
             <li><a href="#3" target="_self" title="HTML5 / CSS3">HTML5 / CSS3</a></li>
             <li><a href="#4" target="_self" title="技术探讨">技术探讨</a></li>

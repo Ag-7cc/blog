@@ -14,6 +14,7 @@
 <![endif]-->
 <script src="js/framework/1.3.0.14/angular.min.js"></script>
 <script src="js/framework/1.3.0.14/angular-route.js"></script>
+<script src="js/framework/1.3.0.14/angular-animate.js"></script>
 
 <%--自定义--%>
 <script src="js/controllers.js"></script>
@@ -38,7 +39,7 @@
 <body>
 <jsp:include page="commons/header.jsp"/>
 <!--header end-->
-<div ng-view></div>
+<div ng-class="pageClass" ng-view></div>
 <jsp:include page="commons/footer.jsp"/>
 </body>
 </html>

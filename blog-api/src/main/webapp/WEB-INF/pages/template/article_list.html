@@ -15,28 +15,9 @@
         </div>
     </div>
     <div class="article-split"></div>
-    <div class="article">
+    <div class="article" ng-controller="ArticleController">
         <ol class="articlelist">
-            <li><a>泪水迷失了双眼 看不清。寻你的路</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>断点 这一夜我画下了句号</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>回首过去 立足现在 着眼未来</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>时间匆忙了脚步</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>一封回忆两种情，两段时光六月天</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>世界上所有的钱，你见过几种</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
-            <li><a>我是日志标题1</a><span>2015-04-22 (0/1)</span></li>
+            <li ng-repeat="item in articles"><a href="#/article/{{item.id}}">{{item.title}}</a><span >{{item.createTime | date:'yyyy-MM-dd'}} ({{item.comment}}/{{item.favour}})</span></li>
         </ol>
         <aside>
             <div class="category">

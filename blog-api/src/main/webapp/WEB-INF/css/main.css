@@ -131,3 +131,19 @@ footer { background: rgba(0, 0, 0, 0.44); -webkit-box-shadow: 0 -1px 0 rgba(0,0,
 .flickr ul li img:hover { opacity: 0.2 }
 .footer-bottom { background: rgba(0, 0, 0, 0.55); overflow: hidden; }
 .footer-bottom p { width: 1000px; margin: 0 auto; padding: 10px 0; text-align:center }
+
+/*!* 进入离开动画 *!*/
+.ng-enter { z-index: 8888; }
+.ng-leave { z-index: 9999; }
+/* index */
+.page-index.ng-enter  { animation:slideInUp 0.5s both ease-in; }
+/*.page-index.ng-leave  { animation:slideOutLeft 0.5s both ease-in; }*/
+/* article -------------------------- */
+.page-article.ng-enter { animation:slideInRight 0.5s both ease-in; }
+/*.page-article.ng-leave { animation:slideOutLeft 0.5s both ease-in; }*/
+/* article-detail ------------------------ */
+.page-article-detail.ng-enter { transform-origin: 50% 50%; animation: rotateOutNewspaper 0.5s both ease-in; }
+.page-article-detail.ng-leave { transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }
+/* album ---------------------- */
+.page-album.ng-enter { animation:slideInRight 0.5s both ease-in; }
+.page-album.ng-leave { transform-origin: 50% 50%; animation: rotateOutNewspaper 0.5s both ease-in; }
