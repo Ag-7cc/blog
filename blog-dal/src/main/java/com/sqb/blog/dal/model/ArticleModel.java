@@ -9,6 +9,12 @@ public class ArticleModel {
 
     private String images;
 
+    private Integer weight;
+
+    private Integer favour;
+
+    private Integer comment;
+
     private Byte status;
 
     private Long createTime;
@@ -47,6 +53,30 @@ public class ArticleModel {
 
     public void setImages(String images) {
         this.images = images;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public Integer getFavour() {
+        return favour;
+    }
+
+    public void setFavour(Integer favour) {
+        this.favour = favour;
+    }
+
+    public Integer getComment() {
+        return comment;
+    }
+
+    public void setComment(Integer comment) {
+        this.comment = comment;
     }
 
     public Byte getStatus() {

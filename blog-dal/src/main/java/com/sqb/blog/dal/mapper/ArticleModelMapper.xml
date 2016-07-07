@@ -6,6 +6,9 @@
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="images" property="images" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="favour" property="favour" jdbcType="INTEGER" />
+    <result column="comment" property="comment" jdbcType="INTEGER" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="create_time" property="createTime" jdbcType="BIGINT" />
     <result column="update_time" property="updateTime" jdbcType="BIGINT" />
@@ -72,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, user_id, title, images, status, create_time, update_time
+    id, user_id, title, images, weight, favour, comment, status, create_time, update_time
   </sql>
   <sql id="Blob_Column_List" >
     content
@@ -130,9 +133,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into article (user_id, title, images, 
+      weight, favour, comment, 
       status, create_time, update_time, 
       content)
     values (#{userId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{images,jdbcType=VARCHAR}, 
+      #{weight,jdbcType=INTEGER}, #{favour,jdbcType=INTEGER}, #{comment,jdbcType=INTEGER}, 
       #{status,jdbcType=TINYINT}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
@@ -150,6 +155,15 @@
       </if>
       <if test="images != null" >
         images,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="favour != null" >
+        favour,
+      </if>
+      <if test="comment != null" >
+        comment,
       </if>
       <if test="status != null" >
         status,
@@ -173,6 +187,15 @@
       </if>
       <if test="images != null" >
         #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="favour != null" >
+        #{favour,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
@@ -209,6 +232,15 @@
       <if test="record.images != null" >
         images = #{record.images,jdbcType=VARCHAR},
       </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=INTEGER},
+      </if>
+      <if test="record.favour != null" >
+        favour = #{record.favour,jdbcType=INTEGER},
+      </if>
+      <if test="record.comment != null" >
+        comment = #{record.comment,jdbcType=INTEGER},
+      </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=TINYINT},
       </if>
@@ -232,6 +264,9 @@
       user_id = #{record.userId,jdbcType=BIGINT},
       title = #{record.title,jdbcType=VARCHAR},
       images = #{record.images,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=INTEGER},
+      favour = #{record.favour,jdbcType=INTEGER},
+      comment = #{record.comment,jdbcType=INTEGER},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT},
@@ -246,6 +281,9 @@
       user_id = #{record.userId,jdbcType=BIGINT},
       title = #{record.title,jdbcType=VARCHAR},
       images = #{record.images,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=INTEGER},
+      favour = #{record.favour,jdbcType=INTEGER},
+      comment = #{record.comment,jdbcType=INTEGER},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=BIGINT}
@@ -264,6 +302,15 @@
       </if>
       <if test="images != null" >
         images = #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="favour != null" >
+        favour = #{favour,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
@@ -285,6 +332,9 @@
     set user_id = #{userId,jdbcType=BIGINT},
       title = #{title,jdbcType=VARCHAR},
       images = #{images,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      favour = #{favour,jdbcType=INTEGER},
+      comment = #{comment,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT},
@@ -296,6 +346,9 @@
     set user_id = #{userId,jdbcType=BIGINT},
       title = #{title,jdbcType=VARCHAR},
       images = #{images,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      favour = #{favour,jdbcType=INTEGER},
+      comment = #{comment,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=BIGINT}

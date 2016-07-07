@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class BeanTrans {
 
     /**
-     * ת��־
+     * 转日志
      *
      * @param articleModel
      * @return
@@ -25,7 +25,7 @@ public abstract class BeanTrans {
     }
 
     /**
-     * ת��־�б�
+     * 转日志列表
      *
      * @param articleModelList
      * @return

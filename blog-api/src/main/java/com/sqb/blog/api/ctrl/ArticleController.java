@@ -5,16 +5,15 @@ import com.sqb.blog.api.view.ViewBody;
 import com.sqb.blog.api.view.ViewUtil;
 import com.sqb.blog.biz.bo.Article;
 import com.sqb.blog.biz.service.ArticleService;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
- * 日志
+ * 鏃ュ織
  * Created by vic.
  * Copyright 2016 by vic.shan
  * Date: 2016/5/31 22:27
@@ -27,13 +26,35 @@ public class ArticleController {
     private ArticleService articleService;
 
     /**
-     * 获取日志列表
+     * 鑾峰彇鏃ュ織鍒楄〃
      *
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/{userId}")
-    public View getArticleList(@PathVariable("userId") Long userId) {
+    @RequestMapping(method = RequestMethod.GET)
+    public View getArticleList(@RequestParam(value = "userId",required = false) Long userId) {
+        Assert.notNull(userId);
         List<Article> articleList = articleService.getArticleListByUid(userId);
         return ViewUtil.defaultView().setBody(new ViewBody(articleList));
+    }
+
+    /**
+     * 鑾峰彇鎺ㄨ崘鏃ュ織鍒楄〃
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET,value = "/recomment")
+    public View getRecommentArticleList(){
+        List<Article> articleList = articleService.getRecommentArticleList();
+        return ViewUtil.defaultView().setBody(new ViewBody(articleList));
+    }
+
+    /**
+     * 鏍规嵁id鏌ヨ鏃ュ織璇︾粏淇℃伅
+     * @param id
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET,value = "/{id}")
+    public View getArticle(@PathVariable("id")Long id){
+        Article article = articleService.getArticleListById(id);
+        return ViewUtil.defaultView().setBody(new ViewBody(article));
     }
 }

@@ -28,10 +28,10 @@
 		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
 	
-	<!--<plugins>
-		<plugin interceptor="com.xjd.mybatis.page.PageInterceptor">
-           <property name="databaseType" value="mysql"/>
-       </plugin>
-	</plugins>-->
+	<!--<plugins>-->
+		<!--<plugin interceptor="com.sqb.mybatis.page.PageInterceptor">-->
+           <!--<property name="databaseType" value="mysql"/>-->
+       <!--</plugin>-->
+	<!--</plugins>-->
 
 </configuration>

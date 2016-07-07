@@ -2,9 +2,8 @@ package com.sqb.blog.dal.mapper;
 
 import com.sqb.blog.dal.model.ArticleModel;
 import com.sqb.blog.dal.model.ArticleModelExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface ArticleModelMapper {
     int countByExample(ArticleModelExample example);

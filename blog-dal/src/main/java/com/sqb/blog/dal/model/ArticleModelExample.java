@@ -364,6 +364,186 @@ public class ArticleModelExample {
             return (Criteria) this;
         }
 
+        public Criteria andWeightIsNull() {
+            addCriterion("weight is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightIsNotNull() {
+            addCriterion("weight is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightEqualTo(Integer value) {
+            addCriterion("weight =", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightNotEqualTo(Integer value) {
+            addCriterion("weight <>", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightGreaterThan(Integer value) {
+            addCriterion("weight >", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightGreaterThanOrEqualTo(Integer value) {
+            addCriterion("weight >=", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightLessThan(Integer value) {
+            addCriterion("weight <", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightLessThanOrEqualTo(Integer value) {
+            addCriterion("weight <=", value, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightIn(List<Integer> values) {
+            addCriterion("weight in", values, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightNotIn(List<Integer> values) {
+            addCriterion("weight not in", values, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightBetween(Integer value1, Integer value2) {
+            addCriterion("weight between", value1, value2, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeightNotBetween(Integer value1, Integer value2) {
+            addCriterion("weight not between", value1, value2, "weight");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourIsNull() {
+            addCriterion("favour is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourIsNotNull() {
+            addCriterion("favour is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourEqualTo(Integer value) {
+            addCriterion("favour =", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourNotEqualTo(Integer value) {
+            addCriterion("favour <>", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourGreaterThan(Integer value) {
+            addCriterion("favour >", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourGreaterThanOrEqualTo(Integer value) {
+            addCriterion("favour >=", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourLessThan(Integer value) {
+            addCriterion("favour <", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourLessThanOrEqualTo(Integer value) {
+            addCriterion("favour <=", value, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourIn(List<Integer> values) {
+            addCriterion("favour in", values, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourNotIn(List<Integer> values) {
+            addCriterion("favour not in", values, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourBetween(Integer value1, Integer value2) {
+            addCriterion("favour between", value1, value2, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andFavourNotBetween(Integer value1, Integer value2) {
+            addCriterion("favour not between", value1, value2, "favour");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentIsNull() {
+            addCriterion("comment is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentIsNotNull() {
+            addCriterion("comment is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentEqualTo(Integer value) {
+            addCriterion("comment =", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentNotEqualTo(Integer value) {
+            addCriterion("comment <>", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentGreaterThan(Integer value) {
+            addCriterion("comment >", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentGreaterThanOrEqualTo(Integer value) {
+            addCriterion("comment >=", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentLessThan(Integer value) {
+            addCriterion("comment <", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentLessThanOrEqualTo(Integer value) {
+            addCriterion("comment <=", value, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentIn(List<Integer> values) {
+            addCriterion("comment in", values, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentNotIn(List<Integer> values) {
+            addCriterion("comment not in", values, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentBetween(Integer value1, Integer value2) {
+            addCriterion("comment between", value1, value2, "comment");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentNotBetween(Integer value1, Integer value2) {
+            addCriterion("comment not between", value1, value2, "comment");
+            return (Criteria) this;
+        }
+
         public Criteria andStatusIsNull() {
             addCriterion("status is null");
             return (Criteria) this;

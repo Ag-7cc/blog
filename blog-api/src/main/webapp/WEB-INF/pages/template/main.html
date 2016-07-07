@@ -24,20 +24,20 @@
   <div class="blank"></div>
   <div class="blogs" ng-controller="ArticleController">
     <ul class="bloglist">
-      <li ng-repeat="item in items">
+      <li ng-repeat="item in articles">
         <div class="arrow_box">
           <div class="ti"></div>
           <!--三角形-->
           <div class="ci"></div>
           <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank" ng-bind="item.title"></a></h2>
+          <h2 class="title"><a href="#/article/{{item.id}}" target="_self" ng-bind="item.title"></a></h2>
           <ul class="textinfo">
             <a href="/"><img ng-src="{{item.images}}"></a>
             <p ng-bind="item.content"></p>
           </ul>
           <ul class="details">
-            <li class="likes"><a href="#">102</a></li>
-            <li class="comments"><a href="#">58</a></li>
+            <li class="likes"><a href="#" ng-bind="item.favour"></a></li>
+            <li class="comments"><a href="#" ng-bind="item.comment"></a></li>
             <li class="icon-time"><a href="#" ng-bind="item.createTime | date:'yyyy'"></a></li>
           </ul>
         </div>
@@ -46,18 +46,10 @@
     </ul>
     <!--bloglist end-->
     <aside>
-      <div class="tuijian">
+      <div class="tuijian" ng-controller="ArticleRecommenController">
         <h2>推荐文章</h2>
         <ol>
-          <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-          <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
-          <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀</a></li>
-          <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天</a></li>
-          <li><span><strong>5</strong></span><a href="/">我希望我的爱情是这样的</a></li>
-          <li><span><strong>6</strong></span><a href="/">谁更心软，谁就先长大</a></li>
-          <li><span><strong>7</strong></span><a href="/">Nothing is as sweet as you</a></li>
-          <li><span><strong>8</strong></span><a href="/">谁更心软，谁就先长大</a></li>
-          <li><span><strong>9</strong></span><a href="/">趁我们都还年轻</a></li>
+          <li ng-repeat="item in articleRecommens"><span><strong ng-bind="$index+1"></strong></span><a href="/" ng-bind="item.title"></a></li>
         </ol>
       </div>
       <div class="toppic">
@@ -117,6 +109,7 @@
       <h2>友情链接</h2>
       <ul>
         <li><a href="http://blog.wangwenyu.com/" target="_blank">老王的闺房</a></li>
+        <li><a href="http://emojime.cn/" target="_blank">老王的表情包</a></li>
       </ul>
     </div>
     <div class="visitors">

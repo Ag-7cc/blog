@@ -17,10 +17,10 @@ indexApp.controller('UserController', ['$scope', '$http',
 //article
 indexApp.controller('ArticleController', ['$scope', '$http',
     function ($scope, $http) {
-        $http.get("/article/1?timestamp=1")
+        $http.get("/article?timestamp=1&userId=1")
             .success(
             function (data, status, header, config) {
-                $scope.items = data['bean'];
+                $scope.articles = data['bean'];
             }
         ).error(
             function (data) {
@@ -29,3 +29,14 @@ indexApp.controller('ArticleController', ['$scope', '$http',
         );
     }
 ]);
+
+//article recommen
+indexApp.controller('ArticleRecommenController',['$scope','$http',
+    function($scope,$http){
+        $http.get("/article/recomment?timestamp=1")
+            .success(
+                function(data){
+                    $scope.articleRecommens = data['bean'];
+                }
+            ).error();
+    }])
