@@ -16,6 +16,11 @@
 <script src="js/framework/1.3.0.14/angular-route.js"></script>
 <script src="js/framework/1.3.0.14/angular-animate.js"></script>
 
+<!-- ueditor 配置文件 -->
+<script type="text/javascript" src="js/framework/ueditor/ueditor.config.js"></script>
+<!-- ueditor 编辑器源码文件 -->
+<script type="text/javascript" src="js/framework/ueditor/ueditor.all.js"></script>
+
 <%--自定义--%>
 <script src="js/controllers.js"></script>
 <script src="js/route.js"></script>

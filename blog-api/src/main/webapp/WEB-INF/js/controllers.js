@@ -42,6 +42,7 @@ indexApp.controller('ArticleController', ['$scope', '$http',
 //article detail
 indexApp.controller('ArticleDetailController', ['$scope', '$http','$routeParams',
     function ($scope, $http,$routeParams) {
+        var ue = UE.getEditor('container');
         $scope.pageClass = 'page-article-detail';
         $http.get("/article/"+$routeParams.id+"?timestamp=1")
             .success(
