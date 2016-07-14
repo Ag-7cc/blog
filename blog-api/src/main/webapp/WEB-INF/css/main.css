@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 * { margin: 0; padding: 0 }
-body { font: 12px "宋体", "Arial Narrow", HELVETICA; color: #3F3E3C; line-height: 1.5; background: #333; }
+body { font: 12px "宋体", "Arial Narrow", HELVETICA; color: #a6a6a6; line-height: 1.5; background: #333; }
 img { border: 0; vertical-align: middle }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 h1 { font: 24px "微软雅黑", "Microsoft YaHei", Arial, Helvetica, sans-serif }
@@ -52,7 +52,7 @@ header nav ul li a.nav_current { color: #fff; background: rgba(20, 20, 20, 0.8);
 .ci:hover { border: 2px solid #B9B9B9; }
 .arrow_box h2.title { padding: 0 0 0 20px; font: 16px/50px "微软雅黑", "Microsoft YaHei", Arial, Helvetica, sans-serif }
 .arrow_box h2 a:hover { padding-left: 20px }
-.textinfo { overflow: hidden; }
+.textinfo { max-height: 126px; overflow: hidden; }
 .arrow_box img { width: 150px; padding: 4px; float: left; -webkit-transition: All 1s ease; -moz-transition: All 1s ease; -ms-transition: All 1s ease; -o-transition: All 1s ease; border-radius: 4px; margin: 0 20px 20px; }
 .arrow_box img:hover { opacity: 0.6; }
 .arrow_box p { line-height: 24px; padding: 0 20px 20px }

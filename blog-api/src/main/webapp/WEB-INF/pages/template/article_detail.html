@@ -1,7 +1,15 @@
-<div class="mainBody">
-    {{article.title}}<br/>
-<!-- 加载编辑器的容器 -->
-<script id="container" name="content" type="text/plain">
-        {{article.content}}
-    </script>
+<div class="articleBody">
+    <div class="article title">
+        <p class="titleDetail">{{article.title}}</p>
+        <p class="pubTime">{{article.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        <p class="readNum">阅读({{article.favour}})</p>
+    </div>
+    <div class="article toolbar"></div>
+    <div class="article content">
+        <!-- 加载编辑器的容器 -->
+        <div ng-bind-html="articleContentHtml"></div>
+    </div>
+    <!--<ueditor config="editorConfig" ng-model="content" ng-bind-html="articleContentHtml">-->
+
+    <!--</ueditor>-->
 </div>

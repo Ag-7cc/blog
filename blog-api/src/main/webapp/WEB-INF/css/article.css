@@ -9,15 +9,15 @@
     width: 950px;
     background: #FFF;
 }
-.mainBody{
+.articleBody{
     border: 0px red solid;
     border-radius: 8px 8px 0px 0px;
-    height: 900px;
+    min-height: 900px;
     width: 1000px;
     margin: 30px auto;
     background-color:  #222;
 }
-.mainBody .mod-tab{
+.articleBody .mod-tab{
     width: 950px;
     height: 52px;
     border: 0px blue solid;
@@ -52,11 +52,16 @@
     font-weight: bold;
 }
 /* 日志列表 */
-.article { width: 950px; margin: 20px auto; }
+.article { width: 950px; margin: 0 auto; }
 .articlelist { width: 620px; float: left; }
 .articlelist>li { border-right: #111 2px solid; padding: 10px 10px; }
 .articlelist li a:hover { padding-left: 10px;color: #B5783E }
 .articlelist li span{float: right;padding: 0 10px;}
+.article.title { line-height: 60px; margin-top: 15px; border-bottom: 1px gray dotted}
+.article.title .titleDetail { display: inline-block; font-size: 30px;font-weight: bold;}
+.article.title .pubTime { display: inline-block; margin-left: 20px;}
+.article.title .readNum { display: inline-block; margin-left: 10px;}
+.article.content{ margin: 20px auto;}
 
 /* 分类 */
 .category li { line-height: 24px; }

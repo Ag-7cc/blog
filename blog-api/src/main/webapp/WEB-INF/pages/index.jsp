@@ -24,7 +24,8 @@
 <%--自定义--%>
 <script src="js/controllers.js"></script>
 <script src="js/route.js"></script>
-<script src="js/common/util.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/common/common.js"></script>
 
 <!doctype html>
 <html ng-app="IndexApp">

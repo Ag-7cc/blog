@@ -1,93 +1,36 @@
-indexApp.directive('ueditor',
-    function () {
-        return{
-            restrict: 'EA',
-            require: 'ngModel',
-            scope: {
-                height: '@?'
-            },
-            link: function (scope, element, attr, ctrl) {
-                var _self = this,
-                    _initContent,
-                    editor,
-                    editorReady = false,
-                    baseURL = "/js/framework/ueditor/"; //写你的ue路径
+indexApp.directive('ueditor', function () {
+    return {
+        restrict: 'AE',
+        transclude: true,
+        replace: true,
+        template: '<script name="content" type="text/plain" ng-transclude></script>',
+        require: '?ngModel',
+        scope: {
+            config: '='
+        },
+        link: function (scope, element, attrs, ngModel) {
+            var editor = new UE.ui.Editor(scope.config || {});
+            editor.render(element[0]);
+            if (ngModel) {
+                //Model数据更新时，更新百度UEditor
+                ngModel.$render = function () {
+                    try {
+                        //alert(ngModel.$viewValue)
+                        editor.setContent(ngModel.$viewValue);
+                    } catch (e) {
 
-                var fexUE = {
-                    initEditor: function () {
-                        var _self = this;
-                        if (typeof UE != 'undefined') {
-                            editor = new UE.ui.Editor({
-                                initialContent: _initContent,
-                                toolbars: [
-                                    ['source', 'undo', 'redo', 'bold', 'italic',  'removeformat', 'formatmatch', 'autotypeset', 'blockquote',
-                                        'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist']
-                                ],
-                                initialFrameHeight:scope.height || 120,
-                                autoHeightEnabled:false,
-                                wordCount:false,
-                                elementPathEnabled: false
-                            });
-
-
-                            editor.render(element[0]);
-                            editor.ready(function () {
-                                editorReady = true;
-                                _self.setContent(_initContent);
-
-                                editor.addListener('contentChange', function () {
-                                    scope.$apply(function () {
-                                        ctrl.$setViewValue(editor.getContent());
-                                    });
-                                });
-                            });
-                        } else {
-
-                            addScript(baseURL + 'ueditor.config.js');
-                            addScript(baseURL + 'ueditor.all.min.js', function(){
-                                _self.initEditor();
-                            })
-                        }
-                    },
-                    setContent: function (content) {
-                        if (editor && editorReady) {
-                            editor.setContent(content);
-                        }
                     }
                 };
 
-                /**
-                 * 当Model改变值得时候赋值。
-                 */
-                ctrl.$render = function () {
-                    _initContent = ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue;
-                    fexUE.setContent(_initContent);
-                };
-
-                fexUE.initEditor();
+                //百度UEditor数据更新时，更新Model
+                editor.addListener('contentChange', function () {
+                    setTimeout(function () {
+                        scope.$apply(function () {
+                            ngModel.$setViewValue(editor.getContent());
+                        })
+                    }, 0);
+                })
             }
         }
     }
-);
-/**
- * 动态加载js文件文件
- * @param url
- * @param callback
- */
-function addScript(url,callback){
-    var elt = document.createElement("script");
-    elt.src = url;
-    elt.anysc = true;
-    if(elt.onload==null){
-        elt.onload = function(){
-            typeof callback=='function'&&callback();
-        }
-    }else{
-        elt.onreadystatechange = function(){
-            if(elt.readyState=="loaded" || elt.readyState=="complete"){
-                typeof callback=='function'&&callback();
-            }
-        }
-    }
-    document.getElementsByTagName("body")[0].appendChild(elt);
-}
+});

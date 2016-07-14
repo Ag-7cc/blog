@@ -1,4 +1,4 @@
-<div class="mainBody">
+<div class="articleBody">
     <div class="mod-tab">
         <div class="mod-tab-list">
             <ul id="main-nav">
@@ -16,6 +16,7 @@
     </div>
     <div class="article-split"></div>
     <div class="article" ng-controller="ArticleController">
+        <!--文章列表-->
         <ol class="articlelist">
             <li ng-repeat="item in articles"><a href="#/article/{{item.id}}">{{item.title}}</a><span >{{item.createTime | date:'yyyy-MM-dd'}} ({{item.comment}}/{{item.favour}})</span></li>
         </ol>
