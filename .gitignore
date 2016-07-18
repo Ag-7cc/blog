@@ -6,3 +6,6 @@ bin/
 gen/
 target/
 .idea/
+blog-dal/support/mybatis.generator.config.blog.xml
+#idea config
+*/*.iml
