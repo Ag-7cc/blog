@@ -33,9 +33,7 @@
           <h2 class="title"><a href="#/article/{{item.id}}" target="_self" ng-bind="item.title"></a></h2>
           <ul class="textinfo">
             <a href="/"><img ng-src="{{item.images}}"></a>
-            <!--<p ng-bind ="item.content"></p>-->
-            <p ng-bind-html="item.articleContentHtml"></p>
-            <!--<p ng-bind-html="item.contextText"></p>-->
+            <p ng-bind="item.contextText"></p>
           </ul>
           <ul class="details">
             <li class="likes"><a href="#" ng-bind="item.favour"></a></li>

@@ -28,23 +28,12 @@ indexApp.controller('ArticleController', ['$scope', '$http', '$sce',
                 function (data, status, header, config) {
                     var articles = data['bean'];
                     for(var idx in articles){
-                        articles[idx].articleContentHtml =  $sce.trustAsHtml(articles[idx].content);
-                        //alert($(articles[idx].articleContentHtml).);
-                        // articles[idx].articleContentHtml.cloneNode(true);
-                        // alert(articles[idx].articleContentHtml.nodeType)
-                        // alert(articles[idx].contextText = $(articles[idx].articleContentHtml).text());
-
-                        // if($(articles[idx].articleContentHtml)[0].hasChildNodes()){
-                        //     articles[idx].contextText = $(articles[idx].articleContentHtml).text();
-                        // }else{
-                        //     articles[idx].contextText = articles[idx].articleContentHtml;
-                        // }
-
-                        // alert(documentIsHTML(articles[idx].articleContentHtml)+"   "+articles[idx].articleContentHtml);
-
-                        //articles[idx].contextText = $(articles[idx].articleContentHtml).text();
-                        //alert(articles[idx].contextText);
-                        // articles[idx].contextText = $(articles[idx].articleContentHtml).text();
+                        var content = $(articles[idx].content).text();
+                        if(notEmpty(content)){
+                            articles[idx].contextText = content;
+                        }else{
+                            articles[idx].contextText = articles[idx].content;
+                        }
                     }
                     $scope.articles = articles;
                 }
