@@ -13,6 +13,7 @@
 		<property name="locations">
 			<array>
 				<value>file:/data/www/config/mysql.properties</value>
+				<value>classpath*:/props/app.properties</value>
 			</array>
 		</property>
 	</bean>
