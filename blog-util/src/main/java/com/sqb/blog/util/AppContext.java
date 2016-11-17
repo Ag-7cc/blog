@@ -1,8 +1,9 @@
 package com.sqb.blog.util;
 
-import java.util.Properties;
-
 import org.apache.commons.lang3.StringUtils;
+
+import java.nio.charset.Charset;
+import java.util.Properties;
 
 /**
  * 应用上下文环
@@ -10,6 +11,11 @@ import org.apache.commons.lang3.StringUtils;
  * @since 2015-6-4
  */
 public class AppContext {
+
+	/**
+	 * 系统默认编码
+	 */
+	public static final Charset CHARSET = Charset.forName("UTF-8");
 
 	protected static AppContext instance;
 

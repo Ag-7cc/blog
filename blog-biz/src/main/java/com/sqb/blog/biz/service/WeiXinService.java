@@ -1,15 +1,16 @@
 package com.sqb.blog.biz.service;
 
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
+import com.sqb.blog.biz.bo.weixin.WXMessageLog;
+import com.sqb.blog.biz.bo.weixin.vo.WXBaseMessage;
+import com.sqb.blog.biz.bo.weixin.vo.WXText;
+import com.sqb.blog.biz.bo.weixin.vo.WXTextMessage;
+import com.sqb.blog.biz.client.WeixinCenterClient;
+import com.sqb.blog.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.InputStream;
-import java.util.List;
 
 /**
  * 微信service
@@ -21,8 +22,7 @@ public class WeiXinService {
     private static final Logger log = LoggerFactory.getLogger(WeiXinService.class);
 
     public String message(HttpServletRequest request) {
-//        WXMessageLog messageLog = WeixinCenterClient.parseMessage(request);
-        try (InputStream inputStream = request.getInputStream()) {
+       /* try (InputStream inputStream = request.getInputStream()) {
             //读取输入流
             SAXReader reader = new SAXReader();
             Document document = reader.read(inputStream);
@@ -38,7 +38,34 @@ public class WeiXinService {
             // 遍历所有子节点
         } catch (Exception e) {
             log.error("", e);
-        }
+        }*/
+
+        WXMessageLog messageLog = WeixinCenterClient.parseMessage(request);
+        System.out.println(JsonUtil.toString(messageLog));
+        sendWXTextMessage(messageLog.getUserName(),"哈哈，可以了");
         return "";
+    }
+
+    /**
+     * 发送一条微信文本消息
+     *
+     * @param openId
+     * @param text
+     */
+    public void sendWXTextMessage(String openId, String text) {
+        // 发送消息
+        WXTextMessage wxMsg = new WXTextMessage();
+        wxMsg.setToUserName(openId);
+        wxMsg.setText(new WXText(text));
+        sendWXMessage(wxMsg);
+    }
+
+    /**
+     * 发送微信消息
+     *
+     * @param wxMsg
+     */
+    private void sendWXMessage(WXBaseMessage wxMsg) {
+        WeixinCenterClient.messageCustomSend(wxMsg);
     }
 }

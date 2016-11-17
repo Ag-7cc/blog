@@ -9,6 +9,20 @@ import java.util.Map;
 
 public abstract class DateUtil {
 
+	/**
+	 * 一天转化为小时。单位：小时
+	 */
+	public static final int DAY_2_HOUR = 24;
+	public static final int WEEK_2_DAY = 7;
+	public static final long SECOND_LONG = 1000L;
+	public static final long MINUTE_LONG = 60 * SECOND_LONG;
+	public static final long HOUR_LONG = 60 * MINUTE_LONG;
+	public static final long DAY_LONG = DAY_2_HOUR * HOUR_LONG;
+	public static final long MONTH_LONG = 30 * DAY_LONG;
+	public static final long YEAR_LONG = 365 * DAY_LONG;
+	/**
+	 * format
+	 */
 	public static final String PATTERN_YEAR2MONTH = "yyyyMM";
 	public static final String PATTERN_YEAR2DAY = "yyyyMMdd";
 	public static final String PATTERN_YEAR2SECOND = "yyyyMMddHHmmss";
