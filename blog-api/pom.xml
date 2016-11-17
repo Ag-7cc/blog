@@ -14,25 +14,12 @@
 
 
 	<dependencies>
-		<!-- ===JEE=== -->
-		<dependency>
-			<groupId>org.apache.openejb</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>6.0-5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-			<!-- <scope>provided</scope> -->
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.2</version>
-			<scope>provided</scope>
-		</dependency>
+        <!-- ===Component=== -->
+        <dependency>
+            <groupId>com.sqb.blog</groupId>
+            <artifactId>sqb-blog-biz</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
 		<!-- ===Test=== -->
 		<!-- spring-test -->
@@ -103,12 +90,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- ===Component=== -->
-		<dependency>
-			<groupId>com.sqb.blog</groupId>
-			<artifactId>sqb-blog-biz</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>cn.bestwu</groupId>
 			<artifactId>ueditor</artifactId>

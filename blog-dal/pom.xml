@@ -15,6 +15,13 @@
 		<mysql-version>5.1.35</mysql-version>
 	</properties>
 	<dependencies>
+		<!-- ===component=== -->
+		<dependency>
+			<groupId>com.sqb.blog</groupId>
+			<artifactId>sqb-blog-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -98,12 +105,6 @@
 			<artifactId>javax.transaction-api</artifactId>
 			<version>1.2</version>
 		</dependency>
-		<!-- ===component=== -->
-		<dependency>
-			<groupId>com.sqb.blog</groupId>
-			<artifactId>sqb-blog-util</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 
 		<!-- perf4j + log4j1 -->
 		<dependency>
@@ -120,6 +121,10 @@
 			<groupId>commons-jexl</groupId>
 			<artifactId>commons-jexl</artifactId>
 			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
 		</dependency>
 	</dependencies>
 
