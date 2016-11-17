@@ -116,6 +116,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>sqb-blog</finalName>
+		<finalName>blog</finalName>
 	</build>
 </project>
