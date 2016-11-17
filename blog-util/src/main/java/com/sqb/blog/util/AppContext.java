@@ -22,6 +22,13 @@ public class AppContext {
 		}
 	}
 
+	public static String getServerWebSite(){
+		if (instance.properties == null) {
+			return null;
+		}
+		return instance.properties.getProperty("server_web_site");
+	}
+
 	public static String getProperty(String key) {
 		if (instance.properties == null) {
 			return null;
