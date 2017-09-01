@@ -13,6 +13,7 @@
 		<property name="locations">
 			<array>
 				<value>file:/data/www/config/mysql.properties</value>
+				<value>file:/data/www/config/app.properties</value>
 				<value>classpath*:/props/app.properties</value>
 				<value>classpath*:/i18n/messages.properties</value>
 			</array>

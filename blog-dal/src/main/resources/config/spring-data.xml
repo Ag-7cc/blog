@@ -13,7 +13,7 @@
 
     <bean id="blogDataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init"
           destroy-method="close">
-        <property name="uniqueResourceName" value="mall"/>
+        <property name="uniqueResourceName" value="blog"/>
         <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
         <property name="xaProperties">
             <props>
