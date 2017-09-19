@@ -31,7 +31,7 @@
 <html ng-app="IndexApp">
 <head>
     <meta charset="UTF-8">
-    <title>Ag丶七梦安生个人博客</title>
+    <title>Vic丶离楛的个人博客</title>
     <meta name="keywords" content="博客,单其贝,shanqibei,vic"/>
     <meta name="description" content="单其贝的个人博客"/>
     <%--QQ--%>

@@ -2,6 +2,7 @@ package com.sqb.blog.biz.client;
 
 import com.sqb.blog.biz.bo.weixin.WXMessageLog;
 import com.sqb.blog.biz.bo.weixin.vo.*;
+import com.sqb.blog.util.AppContext;
 import com.sqb.blog.util.DateUtil;
 import com.sqb.blog.util.HttpUtil;
 import com.sqb.blog.util.JsonUtil;
@@ -12,6 +13,7 @@ import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 import org.apache.http.Consts;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.ContentType;
@@ -22,6 +24,9 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +34,14 @@ import java.io.InputStream;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by vic.shan
  * Date: 2016/11/17.16:12
  */
+@Component
+@EnableScheduling
 public class WeixinCenterClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(WeixinCenterClient.class);
 
@@ -293,7 +301,7 @@ public class WeixinCenterClient {
      * @param request
      * @return
      */
-    public static WXMessageLog parseMessage(HttpServletRequest request) {
+    public WXMessageLog parseMessage(HttpServletRequest request) {
         try (InputStream inputStream = request.getInputStream()) {
             //读取输入流
             SAXReader reader = new SAXReader();
@@ -486,7 +494,7 @@ public class WeixinCenterClient {
      * @param obj 文本消息对象
      * @return xml
      */
-    public static String textMessageToXml(Object obj) {
+    public String textMessageToXml(Object obj) {
         return X_STREAM.toXML(obj);
     }
 
@@ -497,10 +505,10 @@ public class WeixinCenterClient {
      *
      * @param obj
      */
-    public static void messageCustomSend(WXBaseMessage obj) {
+    public void messageCustomSend(WXBaseMessage obj) {
         List<String> messages = new ArrayList<>(0);
         for (int i = 0; i < HTTP_RETRY_COUNT; i++) {
-            String accessToken = getHttpAccessToken();
+            String accessToken = getAccessToken();
             CloseableHttpResponse response = null;
             try {
                 URIBuilder builder = new URIBuilder()
@@ -517,7 +525,7 @@ public class WeixinCenterClient {
                 LOGGER.info("messageCustomSend:::::::::::::" + responseText);
 
             } catch (Exception e) {
-
+                LOGGER.error("", e);
             } finally {
                 HttpUtil.closeQuietly(response);
             }
@@ -537,7 +545,25 @@ public class WeixinCenterClient {
                 JsonUtil.toString(messages)));
     }
 
-    private static String mediaUploadSuffix(String type) {
+    public String messageResponse(WXMessageLog wxMsg) {
+
+//         <xml>
+//        <ToUserName><![CDATA[粉丝号]]></ToUserName>
+//        <FromUserName><![CDATA[公众号]]></FromUserName>
+//        <CreateTime>1460541339</CreateTime>
+//        <MsgType><![CDATA[text]]></MsgType>
+//        <Content><![CDATA[test]]></Content>
+//        </xml>
+
+        WXTextMessage wxTextMessage = new WXTextMessage();
+        wxTextMessage.setText(new WXText("测试"));
+        wxTextMessage.setCreateTime(System.currentTimeMillis());
+        wxTextMessage.setFromUserName("gh_60534a726e98");
+        wxTextMessage.setToUserName(wxMsg.getUserName());
+        return textMessageToXml(wxTextMessage);
+    }
+
+    private String mediaUploadSuffix(String type) {
         switch (type) {
             case MEDIA_TYPE_IMAGE:
                 return ".jpg";
@@ -557,10 +583,10 @@ public class WeixinCenterClient {
      *
      * @return
      */
-    private static String getHttpAccessToken() {
+    public String getHttpAccessToken() {
         CloseableHttpResponse response = null;
         try {
-            /*URIBuilder builder = new URIBuilder()
+            URIBuilder builder = new URIBuilder()
                     .setScheme(SCHEME)
                     .setHost(HOST)
                     .setPath(PATH_ACCESS_TOKEN)
@@ -570,12 +596,29 @@ public class WeixinCenterClient {
             HttpGet get = new HttpGet(builder.build());
             response = HttpUtil.getHttpClient().execute(get);
             String responseText = EntityUtils.toString(response.getEntity());
-            LOGGER.info(responseText);*/
-            return "X96iHIkHVr2s1kwBS4PEwbN4WTb2cNO6hlTstdZGdKkEZ8QG-1fhMOjI2UoMxp_sdDxOUyw4zDkCQtiwpvDCgpbRnLK50EwSPP0KxF7W1jXsCZX7YjDR9hy9_f_N2_KlUSDfAIAMKV";
+            LOGGER.info(responseText);
+            return (String) JsonUtil.parse(responseText, Map.class).get("access_token");
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
             HttpUtil.closeQuietly(response);
         }
+    }
+
+    @Scheduled(fixedRate = 10 * 60 * 1000)
+    public void refreshAccessToken() {
+        String accessToken = getHttpAccessToken();
+        LOGGER.info("refreshAccessToken: " + accessToken);
+        setAccessToken(accessToken);
+    }
+
+    private String accessToken;
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }

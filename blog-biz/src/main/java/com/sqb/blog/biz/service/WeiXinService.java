@@ -8,6 +8,7 @@ import com.sqb.blog.biz.client.WeixinCenterClient;
 import com.sqb.blog.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +20,17 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Service
 public class WeiXinService {
+
+    @Autowired
+    private RedisService redisService;
+    @Autowired
+    private WeixinCenterClient weixinCenterClient;
+
     private static final Logger log = LoggerFactory.getLogger(WeiXinService.class);
 
     public String message(HttpServletRequest request) {
-       /* try (InputStream inputStream = request.getInputStream()) {
+
+        /*try (InputStream inputStream = request.getInputStream()) {
             //读取输入流
             SAXReader reader = new SAXReader();
             Document document = reader.read(inputStream);
@@ -39,11 +47,11 @@ public class WeiXinService {
         } catch (Exception e) {
             log.error("", e);
         }*/
-
-        WXMessageLog messageLog = WeixinCenterClient.parseMessage(request);
+        WXMessageLog messageLog = weixinCenterClient.parseMessage(request);
         System.out.println(JsonUtil.toString(messageLog));
-        sendWXTextMessage(messageLog.getUserName(),"哈哈，可以了");
-        return "";
+//        String message =  sendWXTextMessage(messageLog.getUserName(), "哈哈，可以了");
+        String message = replyWxTextMessage(messageLog.getUserName(), "好的");
+        return message;
     }
 
     /**
@@ -52,20 +60,32 @@ public class WeiXinService {
      * @param openId
      * @param text
      */
-    public void sendWXTextMessage(String openId, String text) {
+    public String sendWXTextMessage(String openId, String text) {
         // 发送消息
         WXTextMessage wxMsg = new WXTextMessage();
         wxMsg.setToUserName(openId);
         wxMsg.setText(new WXText(text));
         sendWXMessage(wxMsg);
+        return "success";
+    }
+
+    public String replyWxTextMessage(String openId, String text) {
+        String xml = "<xml>\n" +
+                "<ToUserName><![CDATA[%s]]></ToUserName>\n" +
+                "<FromUserName><![CDATA[%s]]></FromUserName>\n" +
+                "<CreateTime>%s</CreateTime>\n" +
+                "<MsgType><![CDATA[text]]></MsgType>\n" +
+                "<Content><![CDATA[%s]]></Content>\n" +
+                "</xml>";
+        return String.format(xml, openId, "gh_60534a726e98", System.currentTimeMillis(), text);
     }
 
     /**
-     * 发送微信消息
+     * 发送客服消息
      *
      * @param wxMsg
      */
     private void sendWXMessage(WXBaseMessage wxMsg) {
-        WeixinCenterClient.messageCustomSend(wxMsg);
+        weixinCenterClient.messageCustomSend(wxMsg);
     }
 }
