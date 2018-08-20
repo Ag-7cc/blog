@@ -32,7 +32,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Vic丶离楛的个人博客</title>
-    <meta name="keywords" content="博客,单其贝,shanqibei,vic"/>
+    <meta name="keywords" content="博客,单其贝,shanqibei,vic,离楛"/>
     <meta name="description" content="单其贝的个人博客"/>
     <%--QQ--%>
     <meta property="qc:admins" content="35402540316112516375" />
@@ -41,6 +41,31 @@
 
     <link rel="shortcut icon" href="images/icon/favicon.ico"/>
     <link rel="bookmark" href="images/icon/favicon.ico"/>
+    <!-- 百度站长-被动推送 -->
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?05dff5ea87365a46529ff9bbee7cdf14";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 <body>
 <jsp:include page="commons/header.jsp"/>
